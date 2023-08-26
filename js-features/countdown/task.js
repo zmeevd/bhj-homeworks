@@ -2,10 +2,12 @@
 
 const addCounter = function() {
 	const timer = document.getElementById("timer"); //Обращение к таймер в разметке
-	if (timer.textContent > 0 ) {
-		timer.textContent -= 1;
-	} else {
+	timer.textContent -= 1;
+	
+	if (timer.textContent <= 0) {
+		clearInterval(intervalId);
 		alert("Вы победили в конкурсе!")
-	}
+	}	
 };
-setInterval(addCounter, 1000) //Функция которая запускается с интервалом
+
+const intervalId = setInterval(addCounter, 1000) //Функция которая запускается с интервалом
